@@ -1,4 +1,4 @@
 simple-pong-game-applet
 =======================
 
-Simplese Jogo Pong para a disciplina de Jogos digitais para WEB - Fatec Carapicuiba
+Simples Jogo Pong para a disciplina de Jogos digitais para WEB - Fatec Carapicuiba
