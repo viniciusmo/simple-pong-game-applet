@@ -6,6 +6,7 @@ import java.awt.Graphics;
 
 import com.viniciusmo.pong.audio.PlayerMP3;
 import com.viniciusmo.pong.game.GameArea;
+import com.viniciusmo.pong.game.GameOverException;
 import com.viniciusmo.pong.game.Moveable;
 import com.viniciusmo.pong.listeners.BarControllerMovement;
 import com.viniciusmo.pong.shapes.Circle;
@@ -46,7 +47,6 @@ public class PongGame extends Applet implements Runnable {
 		g.setColor(Color.WHITE);
 		g.drawString("Score: " + score, 20, 20);
 		g.drawString("by viniciusmo", getWidth() - 100, 20);
-
 	}
 
 	private void sleep() {
@@ -70,7 +70,13 @@ public class PongGame extends Applet implements Runnable {
 	@Override
 	public void run() {
 		while (gamePlay) {
-			ball.updatePosition();
+			try {
+				ball.updatePosition();
+			} catch (GameOverException e) {
+				PlayerMP3 player = new PlayerMP3("../res/game_over.mp3");
+				player.play();
+				stopGame();
+			}
 			sleep();
 			verifyCollidesWithBallAndPlaySound();
 			repaint();

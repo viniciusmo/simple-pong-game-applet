@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import com.viniciusmo.pong.game.GameArea;
+import com.viniciusmo.pong.game.GameOverException;
 import com.viniciusmo.pong.game.Moveable;
 
 public class Circle extends Shape implements Moveable {
@@ -36,7 +37,9 @@ public class Circle extends Shape implements Moveable {
 	}
 
 	private void updateDirections(int x, int y) {
-		xdirection = (x < 0) ? 1 : xdirection;
+		if (x < 0) {
+			throw new GameOverException();
+		}
 		xdirection = (x > area.getWidth() - getWidth()) ? -1 : xdirection;
 		ydirection = (y < 0) ? 1 : ydirection;
 		ydirection = (y > area.getHeight() - getHeight()) ? -1 : ydirection;
