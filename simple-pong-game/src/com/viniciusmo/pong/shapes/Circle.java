@@ -32,6 +32,10 @@ public class Circle extends Shape implements Moveable {
 		int y = getY();
 		x = x + (X_SPEED * xdirection);
 		y = y + (Y_SPEED * ydirection);
+		updateDirections(x, y);
+	}
+
+	private void updateDirections(int x, int y) {
 		xdirection = (x < 0) ? 1 : xdirection;
 		xdirection = (x > area.getWidth() - getWidth()) ? -1 : xdirection;
 		ydirection = (y < 0) ? 1 : ydirection;
