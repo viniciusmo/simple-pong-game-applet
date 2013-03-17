@@ -1,10 +1,12 @@
 package com.viniciusmo.pong;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+import com.viniciusmo.pong.audio.PlayerMP3;
 import com.viniciusmo.pong.game.GameArea;
 import com.viniciusmo.pong.game.Moveable;
 import com.viniciusmo.pong.shapes.Circle;
@@ -20,7 +22,7 @@ public class PongGame extends Applet implements MouseMotionListener, Runnable {
 
 	public void init() {
 		area = new GameArea(800, 500);
-		bar = new Rectangle(200, 0, 20, 150);
+		bar = new Rectangle(200, 0, 10, 150);
 		ball = new Circle(area, 100, 100, 15, 15);
 		setSize(area.getWidth(), area.getHeight());
 		setBackground(Color.black);
@@ -32,6 +34,9 @@ public class PongGame extends Applet implements MouseMotionListener, Runnable {
 		bar.draw(g);
 		ball.draw(g);
 		g.drawString("Score: " + 10, 20, 20);
+		g.setColor(Color.WHITE);
+		g.drawString("by viniciusmo", getWidth() - 100, 20);
+
 	}
 
 	public void mouseMoved(MouseEvent e) {
@@ -52,7 +57,9 @@ public class PongGame extends Applet implements MouseMotionListener, Runnable {
 			}
 			if (bar.collides(ball)) {
 				Moveable mv = (Moveable) ball;
-				mv.updateDirectionX(1);
+				mv.changeDirectionX();
+				PlayerMP3 player = new PlayerMP3("../res/pong.mp3");
+				player.play();
 			}
 			repaint();
 		}

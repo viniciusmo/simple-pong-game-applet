@@ -1,4 +1,5 @@
 package com.viniciusmo.pong.shapes;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -40,12 +41,12 @@ public class Circle extends Shape implements Moveable {
 	}
 
 	@Override
-	public void updateDirectionX(int direction) {
-		this.xdirection = direction;
+	public void changeDirectionX() {
+		xdirection = xdirection * -1;
 	}
 
 	@Override
-	public void updateDirectionY(int direction) {
-		this.ydirection = direction;
+	public void changeDirectionY() {
+		ydirection = ydirection * -1;
 	}
 }
