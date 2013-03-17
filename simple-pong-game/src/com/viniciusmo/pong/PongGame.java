@@ -60,9 +60,9 @@ public class PongGame extends Applet implements Runnable {
 
 	public void paint(Graphics g) {
 		if (gamePlay) {
-			g.setColor(Color.WHITE);
 			bar.draw(g);
 			ball.draw(g);
+			g.setColor(Color.WHITE);
 			g.drawString("Score: " + score, 20, 20);
 			g.drawString("by viniciusmo", getWidth() - 100, 20);
 		} else {
