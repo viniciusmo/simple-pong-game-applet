@@ -52,8 +52,9 @@ public class PongGame extends Applet implements Runnable {
 
 	public void stopGame() {
 		gamePlay = false;
+		score = 0;
 	}
-
+	
 	public boolean isPlayingGame() {
 		return gamePlay;
 	}
