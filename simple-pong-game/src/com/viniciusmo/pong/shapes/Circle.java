@@ -1,6 +1,5 @@
 package com.viniciusmo.pong.shapes;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import com.viniciusmo.pong.game.GameArea;
@@ -23,7 +22,6 @@ public class Circle extends Shape implements Moveable {
 
 	@Override
 	public void draw(Graphics graphics) {
-		graphics.setColor(Color.RED);
 		graphics.drawOval(getX(), getY(), getWidth(), getHeight());
 		graphics.fillOval(getX(), getY(), getWidth(), getHeight());
 	}

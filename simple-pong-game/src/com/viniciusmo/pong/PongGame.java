@@ -43,7 +43,7 @@ public class PongGame extends Applet implements Runnable {
 	}
 
 	public void startGame() {
-		bar = new Rectangle(100, 0, 10, 150);
+		bar = new Rectangle(50, 0, 10, 100);
 		ball = new Circle(area, 500, 100, 15, 15);
 		gamePlay = true;
 		gameKeyListeners.addKeyListener(new BarControllerMovement(bar));
