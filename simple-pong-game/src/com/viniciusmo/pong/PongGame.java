@@ -54,7 +54,7 @@ public class PongGame extends Applet implements Runnable {
 		gamePlay = false;
 		score = 0;
 	}
-	
+
 	public boolean isPlayingGame() {
 		return gamePlay;
 	}
@@ -68,7 +68,8 @@ public class PongGame extends Applet implements Runnable {
 			g.drawString("by viniciusmo", getWidth() - 100, 20);
 		} else {
 			g.setColor(Color.WHITE);
-			g.drawString("Pressione a tecla espaço para iniciar o jogo", 20, 20);
+			g.drawString("Pressione a tecla espaço para iniciar o jogo",
+					area.getWidth() - 550, area.getHeight() / 2);
 		}
 	}
 
@@ -96,7 +97,8 @@ public class PongGame extends Applet implements Runnable {
 			try {
 				ball.updatePosition();
 			} catch (GameOverException e) {
-				AudioClip audioClip = getAudioClip(getCodeBase(), "../res/game_over.wav");
+				AudioClip audioClip = getAudioClip(getCodeBase(),
+						"../res/game_over.wav");
 				audioClip.play();
 				stopGame();
 			}
