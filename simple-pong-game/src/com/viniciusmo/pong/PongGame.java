@@ -1,13 +1,13 @@
 package com.viniciusmo.pong;
 
 import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.viniciusmo.pong.audio.PlayerMP3;
 import com.viniciusmo.pong.game.GameArea;
 import com.viniciusmo.pong.game.GameOverException;
 import com.viniciusmo.pong.game.Moveable;
@@ -84,8 +84,8 @@ public class PongGame extends Applet implements Runnable {
 		if (bar.collides(ball)) {
 			Moveable mv = (Moveable) ball;
 			mv.changeDirectionX();
-			PlayerMP3 player = new PlayerMP3("../res/pong.mp3");
-			player.play();
+			AudioClip audioClip = getAudioClip(getCodeBase(), "../res/pong.wav");
+			audioClip.play();
 			score += 10;
 		}
 	}
@@ -96,8 +96,8 @@ public class PongGame extends Applet implements Runnable {
 			try {
 				ball.updatePosition();
 			} catch (GameOverException e) {
-				PlayerMP3 player = new PlayerMP3("../res/game_over.mp3");
-				player.play();
+				AudioClip audioClip = getAudioClip(getCodeBase(), "../res/game_over.wav");
+				audioClip.play();
 				stopGame();
 			}
 			sleep();
